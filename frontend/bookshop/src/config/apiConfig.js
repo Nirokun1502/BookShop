@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 export const API_BASE_URL = "http://localhost";
 const jwt = localStorage.getItem("jwt");
 
