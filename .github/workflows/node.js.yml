@@ -31,6 +31,6 @@ jobs:
 
     - name: Run tests
       working-directory: frontend/bookshop
-      run: npm test --if-present --quiet
+      run: CI=false npm test --if-present --quiet
      
 
