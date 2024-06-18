@@ -22,4 +22,5 @@ jobs:
         cache-dependency-path: frontend/bookshop/package-lock.json
     - run: npm ci
     - run: npm test
+      working-directory: frontend/bookshop
 
