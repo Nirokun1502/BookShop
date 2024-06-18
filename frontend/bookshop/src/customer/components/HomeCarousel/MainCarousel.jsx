@@ -1,7 +1,7 @@
-import React from 'react'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
-import { homeCarouselData } from './MainCarouselData' // Importing your carousel data
+import React from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { homeCarouselData } from "./MainCarouselData"; // Importing your carousel data
 
 const MainCarousel = () => (
   <AliceCarousel
@@ -16,12 +16,12 @@ const MainCarousel = () => (
           <img
             src={item.image}
             alt={`Slide ${index + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }}
+            style={{ maxWidth: "100%", height: "auto" }}
           />
         </a>
       </div>
     ))}
   />
-)
+);
 
-export default MainCarousel
+export default MainCarousel;
