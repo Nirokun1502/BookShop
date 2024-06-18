@@ -29,7 +29,7 @@ const HomePage = () => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const results = await axios.get(
-        `http://localhost:5454/api/products?color=&minPrice=0&maxPrice=1000000&minDiscount=0&category=&stock=null&sort=null&pageNumber=0&pageSize=100`,
+        `http://localhost/api/products?color=&minPrice=0&maxPrice=1000000&minDiscount=0&category=&stock=null&sort=null&pageNumber=0&pageSize=100`,
         config
       );
 
@@ -54,10 +54,7 @@ const HomePage = () => {
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
       };
-      const results = await axios.get(
-        `http://localhost:5454/api/category/`,
-        config
-      );
+      const results = await axios.get(`http://localhost/api/category/`, config);
       results.data.filter((category) => category.level === 2);
       setCategory(
         results.data
@@ -80,7 +77,7 @@ const HomePage = () => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const results = await axios.get(
-        `http://localhost:5454/api/products?color=&minPrice=0&maxPrice=10000000&minDiscount=0&category=all_products&stock=&sort=&pageNumber=0&pageSize=100`,
+        `http://localhost/api/products?color=&minPrice=0&maxPrice=10000000&minDiscount=0&category=all_products&stock=&sort=&pageNumber=0&pageSize=100`,
         config
       );
 

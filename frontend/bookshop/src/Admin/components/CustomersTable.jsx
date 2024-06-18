@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './CSS/CustomersTable.css'; // Import CSS file for styling
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./CSS/CustomersTable.css"; // Import CSS file for styling
 
 const CustomersTable = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ const CustomersTable = () => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const response = await axios.get(
-        `http://localhost:5454/api/users/profile`,
+        `http://localhost/api/users/profile`,
         config
       );
       setUsers([response.data]);
@@ -27,7 +27,7 @@ const CustomersTable = () => {
   }, []);
 
   return (
-    <div className='customers-table'>
+    <div className="customers-table">
       <h1>All Customers List</h1>
       <div className="table-header">
         <p>ID</p>
@@ -37,20 +37,21 @@ const CustomersTable = () => {
       </div>
       <div className="table-body">
         <hr />
-        {!!users && users.map((user, index) => (
-          <React.Fragment key={index}>
-            <div className="table-row">
-              <p>{user.id}</p>
-              <p>{user.firstName}</p>
-              <p>{user.lastName}</p>
-              <p>{user.email}</p>
-            </div>
-            <hr />
-          </React.Fragment>
-        ))}
+        {!!users &&
+          users.map((user, index) => (
+            <React.Fragment key={index}>
+              <div className="table-row">
+                <p>{user.id}</p>
+                <p>{user.firstName}</p>
+                <p>{user.lastName}</p>
+                <p>{user.email}</p>
+              </div>
+              <hr />
+            </React.Fragment>
+          ))}
       </div>
     </div>
   );
-}
+};
 
 export default CustomersTable;

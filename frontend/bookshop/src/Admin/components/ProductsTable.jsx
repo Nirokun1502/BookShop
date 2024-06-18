@@ -1,52 +1,52 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import cross_icon from '../../customer/components/assets/cross_icon.png'
-import './CSS/ListProduct.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import cross_icon from "../../customer/components/assets/cross_icon.png";
+import "./CSS/ListProduct.css";
 
 const ProductsTable = () => {
-  const [results, setResults] = useState([])
-  const navigate = useNavigate()
-  const jwt = localStorage.getItem('jwt')
+  const [results, setResults] = useState([]);
+  const navigate = useNavigate();
+  const jwt = localStorage.getItem("jwt");
 
   const fetchData = async () => {
     try {
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
-      }
+      };
       const response = await axios.get(
-        `http://localhost:5454/api/products?color=&minPrice=0&maxPrice=1000000&minDiscount=0&category=all_products&stock=null&sort=price_low&pageNumber=0&pageSize=10`,
+        `http://localhost/api/products?color=&minPrice=0&maxPrice=1000000&minDiscount=0&category=all_products&stock=null&sort=price_low&pageNumber=0&pageSize=10`,
         config
-      )
-      setResults(response.data.content)
-      console.log(response.data.content)
+      );
+      setResults(response.data.content);
+      console.log(response.data.content);
     } catch (error) {
-      console.error('Error fetching data:', error)
+      console.error("Error fetching data:", error);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   const handleDelete = async (productId) => {
     try {
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
-      }
+      };
       await axios.delete(
-        `http://localhost:5454/api/admin/products/${productId}/delete`,
+        `http://localhost/api/admin/products/${productId}/delete`,
         config
-      )
-      setResults(results.filter((product) => product.id !== productId))
+      );
+      setResults(results.filter((product) => product.id !== productId));
     } catch (error) {
-      console.error('Error deleting product:', error)
+      console.error("Error deleting product:", error);
     }
-  }
+  };
 
   const handleEdit = (productId) => {
-    navigate(`/admin/products/edit/${productId}`)
-  }
+    navigate(`/admin/products/edit/${productId}`);
+  };
 
   return (
     <div className="list-product">
@@ -88,7 +88,7 @@ const ProductsTable = () => {
           ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductsTable
+export default ProductsTable;

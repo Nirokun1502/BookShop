@@ -24,7 +24,7 @@ const OrderDetails = () => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const results = await axios.get(
-        `http://localhost:5454/api/orders/${orderId}`,
+        `http://localhost/api/orders/${orderId}`,
         config
       );
       setOrder(results.data);

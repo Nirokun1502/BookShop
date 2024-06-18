@@ -35,7 +35,7 @@ const HomeSectionCarousel = ({ data, categoryName }) => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const results = await axios.get(
-        `http://localhost:5454/api/products?color=&minPrice=0&maxPrice=10000000&minDiscount=0&category=all_products&stock=&sort=&pageNumber=0&pageSize=100`,
+        `http://localhost/api/products?color=&minPrice=0&maxPrice=10000000&minDiscount=0&category=all_products&stock=&sort=&pageNumber=0&pageSize=100`,
         config
       );
 

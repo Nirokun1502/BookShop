@@ -16,7 +16,7 @@ function ResultsList({ results, setProduct, setVisible }) {
     //   };
 
     //   const response = await axios.get(
-    //     `http://localhost:5454/api/products/${productId}`,
+    //     `http://localhost/api/products/${productId}`,
     //     config
     //   );
     //   setProduct(response.data);

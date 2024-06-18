@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
-import './CSS/EditProduct.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import "./CSS/EditProduct.css";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -18,7 +18,7 @@ const EditProduct = () => {
     topLevelCategory: "",
     secondLevelCategory: "Giấy",
     thirdLevelCategory: "all_products",
-    description: ""
+    description: "",
   });
 
   const jwt = localStorage.getItem("jwt");
@@ -29,7 +29,10 @@ const EditProduct = () => {
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
         };
-        const response = await axios.get(`http://localhost:5454/api/products/${productId}`, config);
+        const response = await axios.get(
+          `http://localhost/api/products/${productId}`,
+          config
+        );
         setProductDetails(response.data);
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -43,7 +46,7 @@ const EditProduct = () => {
     const { name, value } = e.target;
     setProductDetails((prevDetails) => ({
       ...prevDetails,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -51,66 +54,132 @@ const EditProduct = () => {
     e.preventDefault();
     try {
       const config = {
-        headers: { Authorization: `Bearer ${jwt}`, 'Content-Type': 'application/json' },
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          "Content-Type": "application/json",
+        },
       };
-      await axios.put(`http://localhost:5454/api/admin/products/${productId}/update`, productDetails, config);
-      navigate('/admin/products');
+      await axios.put(
+        `http://localhost/api/admin/products/${productId}/update`,
+        productDetails,
+        config
+      );
+      navigate("/admin/products");
     } catch (error) {
       console.error("Error updating product:", error);
     }
   };
 
   return (
-    <div className='edit-product'>
+    <div className="edit-product">
       <h1>Edit Product</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Image URL:
-          <input type="text" name="imageUrl" value={productDetails.imageUrl} onChange={handleChange} />
+          <input
+            type="text"
+            name="imageUrl"
+            value={productDetails.imageUrl}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Brand:
-          <input type="text" name="brand" value={productDetails.brand} onChange={handleChange} />
+          <input
+            type="text"
+            name="brand"
+            value={productDetails.brand}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Title:
-          <input type="text" name="title" value={productDetails.title} onChange={handleChange} />
+          <input
+            type="text"
+            name="title"
+            value={productDetails.title}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Color:
-          <input type="text" name="color" value={productDetails.color} onChange={handleChange} />
+          <input
+            type="text"
+            name="color"
+            value={productDetails.color}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Discounted Price:
-          <input type="number" name="discountedPrice" value={productDetails.discountedPrice} onChange={handleChange} />
+          <input
+            type="number"
+            name="discountedPrice"
+            value={productDetails.discountedPrice}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Price:
-          <input type="number" name="price" value={productDetails.price} onChange={handleChange} />
+          <input
+            type="number"
+            name="price"
+            value={productDetails.price}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Discount Percent:
-          <input type="number" name="discountPercent" value={productDetails.discountPercent} onChange={handleChange} />
+          <input
+            type="number"
+            name="discountPercent"
+            value={productDetails.discountPercent}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Quantity:
-          <input type="number" name="quantity" value={productDetails.quantity} onChange={handleChange} />
+          <input
+            type="number"
+            name="quantity"
+            value={productDetails.quantity}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Top Level Category:
-          <input type="text" name="topLevelCategory" value={productDetails.topLevelCategory} onChange={handleChange} />
+          <input
+            type="text"
+            name="topLevelCategory"
+            value={productDetails.topLevelCategory}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Second Level Category:
-          <input type="text" name="secondLevelCategory" value={productDetails.secondLevelCategory} onChange={handleChange} />
+          <input
+            type="text"
+            name="secondLevelCategory"
+            value={productDetails.secondLevelCategory}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Third Level Category:
-          <input type="text" name="thirdLevelCategory" value={productDetails.thirdLevelCategory} onChange={handleChange} />
+          <input
+            type="text"
+            name="thirdLevelCategory"
+            value={productDetails.thirdLevelCategory}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Description:
-          <textarea name="description" value={productDetails.description} onChange={handleChange} />
+          <textarea
+            name="description"
+            value={productDetails.description}
+            onChange={handleChange}
+          />
         </label>
         <button type="submit">Save</button>
       </form>

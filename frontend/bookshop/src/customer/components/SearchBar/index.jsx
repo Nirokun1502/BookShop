@@ -21,7 +21,7 @@ function SearchBar({ setResults, setVisible }) {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const results = await axios.get(
-        `http://localhost:5454/api/products/search?q=${value}`,
+        `http://localhost/api/products/search?q=${value}`,
         config
       );
       setResults(results.data);

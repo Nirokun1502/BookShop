@@ -12,7 +12,7 @@ const OrdersTable = () => {
         headers: { Authorization: `Bearer ${jwt}` },
       };
       const response = await axios.get(
-        "http://localhost:5454/api/admin/orders/",
+        "http://localhost/api/admin/orders/",
         config
       );
       setOrders(response.data);
