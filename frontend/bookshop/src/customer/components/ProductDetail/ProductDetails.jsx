@@ -1,77 +1,78 @@
-import { useEffect, useState } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
-import { Box, Button, Grid, LinearProgress, Rating } from '@mui/material'
-import ProductReviewCard from './ProductReviewCard'
-import HomeSectionCard from '../HomeSectionCard/HomeSectionCard'
-import { useNavigate, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { findProductsById } from '../../../State/Products/Action'
-import { addItemToCart } from '../../../State/Cart/Action'
-import { mens_kurta } from '../../Data/mens_kurta'
+import { useEffect, useState } from "react";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { RadioGroup } from "@headlessui/react";
+import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
+import ProductReviewCard from "./ProductReviewCard";
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findProductsById } from "../../../State/Products/Action";
+import { addItemToCart } from "../../../State/Cart/Action";
+import { mens_kurta } from "../../Data/mens_kurta";
 
 const product = {
-  name: 'Basic Tee 6-Pack',
-  price: '$192',
-  href: '#',
+  name: "Basic Tee 6-Pack",
+  price: "$192",
+  href: "#",
   breadcrumbs: [
-    { id: 1, name: 'Dụng cụ học tập', href: '#' },
-    { id: 2, name: 'Đồ dùng học tập', href: '#' },
+    { id: 1, name: "Dụng cụ học tập", href: "#" },
+    { id: 2, name: "Đồ dùng học tập", href: "#" },
   ],
   images: [
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
+      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+      alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
-      alt: 'Model wearing plain black basic tee.',
+      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+      alt: "Model wearing plain black basic tee.",
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
-      alt: 'Model wearing plain gray basic tee.',
+      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+      alt: "Model wearing plain gray basic tee.",
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
-      alt: 'Model wearing plain white basic tee.',
+      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+      alt: "Model wearing plain white basic tee.",
     },
   ],
   colors: [
-    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
-    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
-    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+    { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
   ],
-}
-const reviews = { href: '#', average: 4, totalCount: 117 }
+};
+const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function ProductDetails() {
-  const [activeImage, setActiveImage] = useState(null)
-  const navigate = useNavigate()
-  const params = useParams()
-  const dispatch = useDispatch()
-  const [rotationAngle, setRotationAngle] = useState(0)
-  const { products } = useSelector((store) => store)
+  const [activeImage, setActiveImage] = useState(null);
+  const navigate = useNavigate();
+  const params = useParams();
+  const dispatch = useDispatch();
+  const [rotationAngle, setRotationAngle] = useState(0);
+  const { products } = useSelector((store) => store);
 
   const rotateImage = () => {
     // Rotate by 45 degrees each time
-    setRotationAngle((prevAngle) => prevAngle + 45)
-  }
+    setRotationAngle((prevAngle) => prevAngle + 45);
+  };
   const handleAddToCart = () => {
-    const data = { productId: params.productId }
-    console.log('Selected data :', data)
-    dispatch(addItemToCart(data))
-    navigate('/cart')
-  }
+    const data = { productId: params.productId };
+    console.log("Selected data :", data);
+    dispatch(addItemToCart(data));
+    navigate("/cart");
+  };
 
   useEffect(() => {
-    const data = { productId: params.productId }
-    console.log(data)
-    dispatch(findProductsById(data))
-  }, [params.productId])
+    window.scrollTo(0, 0);
+    const data = { productId: params.productId };
+    console.log(data);
+    dispatch(findProductsById(data));
+  }, [params.productId]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -146,7 +147,7 @@ function ProductDetails() {
                 {products.product?.brand}
               </h1>
               <h1 className="text-lg lg:text-xl opacity-60 text-gray-900 pt-1">
-                {' '}
+                {" "}
                 {products.product?.title}
               </h1>
             </div>
@@ -197,7 +198,7 @@ function ProductDetails() {
                   </div>
                 </div>
                 <Button
-                  sx={{ px: '1.5rem', py: '1rem', bgcolor: '#9155fd' }}
+                  sx={{ px: "1.5rem", py: "1rem", bgcolor: "#9155fd" }}
                   variant="contained"
                   onClick={handleAddToCart}
                 >
@@ -264,7 +265,7 @@ function ProductDetails() {
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        sx={{ bgcolor: '#d0d0d0', borderRadius: 4, height: 7 }}
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value="55"
                         color="success"
@@ -278,7 +279,7 @@ function ProductDetails() {
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        sx={{ bgcolor: '#d0d0d0', borderRadius: 4, height: 7 }}
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value="40"
                         color="primary"
@@ -292,7 +293,7 @@ function ProductDetails() {
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        sx={{ bgcolor: '#d0d0d0', borderRadius: 4, height: 7 }}
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value="59"
                         color="secondary"
@@ -306,7 +307,7 @@ function ProductDetails() {
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        sx={{ bgcolor: '#d0d0d0', borderRadius: 4, height: 7 }}
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value="20"
                         color="warning"
@@ -320,7 +321,7 @@ function ProductDetails() {
                     </Grid>
                     <Grid item xs={7}>
                       <LinearProgress
-                        sx={{ bgcolor: '#d0d0d0', borderRadius: 4, height: 7 }}
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value="10"
                         color="error"
@@ -344,7 +345,7 @@ function ProductDetails() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default ProductDetails
+export default ProductDetails;

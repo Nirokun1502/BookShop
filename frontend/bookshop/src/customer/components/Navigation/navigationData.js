@@ -6,14 +6,14 @@ export const navigationData = {
       featured: [
         {
           name: "Bút mới về",
-          href: "/product/109",
+          href: "/BookShop/product/109",
           imageSrc: "https://cdn.fast.vn/tmp/20200703154747-19.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
           name: "Bút bi Thiên Long",
-          href: "/product/112",
+          href: "/BookShop/product/112",
           imageSrc: "https://cdn.fast.vn/tmp/20200703154729-20.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
@@ -127,5 +127,5 @@ export const navigationData = {
     //   ],
     // },
   ],
-  pages: [{ name: "Company", id: "company", href: "/about" }],
+  pages: [{ name: "Company", id: "company", href: "/BookShop/about" }],
 };

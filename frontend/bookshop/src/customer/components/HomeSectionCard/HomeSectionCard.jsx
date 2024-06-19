@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HomeSectionCard({ product, productId }) {
   return (
@@ -6,7 +7,7 @@ function HomeSectionCard({ product, productId }) {
       className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg 
     overflow-hidden w-[15rem] mx-3"
     >
-      <a href={`product/${productId}`}>
+      <Link to={`product/${productId}`}>
         <div className="h-[13rem] w-[10rem]">
           <img
             className="object-cover object-top w-full h-full"
@@ -20,7 +21,7 @@ function HomeSectionCard({ product, productId }) {
           </h3>
           <p className="mt-2 text-sm text-gray-500">{product?.title}</p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

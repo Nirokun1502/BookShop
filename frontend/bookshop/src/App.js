@@ -5,7 +5,7 @@ import AdminRouters from "./Routers/AdminRouters";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/BookShop">
       <div className="">
         <Routes>
           <Route path="/*" element={<CustomerRouters />}></Route>

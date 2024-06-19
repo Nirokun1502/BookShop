@@ -1,17 +1,15 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import HomePage from '../customer/pages/HomePage/HomePage'
-import Cart from '../customer/components/Cart/Cart'
-import Footer from '../customer/components/Footer/Footer'
-import Product from '../customer/components/Product/Product'
-import Navigation from '../customer/components/Navigation/Navigation'
-import ProductDetails from '../customer/components/ProductDetail/ProductDetails'
-import CheckOut from '../customer/components/Checkout/CheckOut'
-import Order from '../customer/components/Order/Order'
-import OrderDetails from '../customer/components/Order/OrderDetails'
-import About from '../customer/pages/About'
-
-
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "../customer/pages/HomePage/HomePage";
+import Cart from "../customer/components/Cart/Cart";
+import Footer from "../customer/components/Footer/Footer";
+import Product from "../customer/components/Product/Product";
+import Navigation from "../customer/components/Navigation/Navigation";
+import ProductDetails from "../customer/components/ProductDetail/ProductDetails";
+import CheckOut from "../customer/components/Checkout/CheckOut";
+import Order from "../customer/components/Order/Order";
+import OrderDetails from "../customer/components/Order/OrderDetails";
+import About from "../customer/pages/About";
 
 const CustomerRouters = () => {
   return (
@@ -38,7 +36,7 @@ const CustomerRouters = () => {
       </Routes>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default CustomerRouters
+export default CustomerRouters;
