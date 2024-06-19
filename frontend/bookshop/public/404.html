@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; URL=/" />
+    <script>
+      // Lưu giữ URL gốc và chuyển hướng về trang chính
+      setTimeout(function () {
+        window.location.href =
+          "/" +
+          window.location.pathname +
+          window.location.search +
+          window.location.hash;
+      }, 0);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
