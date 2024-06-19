@@ -120,7 +120,10 @@ const HomePage = () => {
             categoryName={categoryName}
           />
         )}
-        <HomeSectionCarousel data={products} categoryName={"Tất cả sản phẩm"} />
+        <HomeSectionCarousel
+          data={products}
+          categoryName={"Tất cả sản phẩmmm"}
+        />
       </div>
     </div>
   );
