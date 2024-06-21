@@ -105,7 +105,7 @@ const HomePage = () => {
           backgroundColor: "pink",
         }}
       >
-        <div>Chọn Danh Mục CICD: </div>
+        <div>Chọn Danh Mục</div>
         <select value={category[selectedIndex]} onChange={handleComboBoxChange}>
           {/* Đổ dữ liệu từ mảng vào combo box */}
           {category.map((option, index) => (
