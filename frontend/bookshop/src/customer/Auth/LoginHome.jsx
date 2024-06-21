@@ -46,6 +46,7 @@ const LoginHome = () => {
               id="password"
               name="password"
               label="Password"
+              type="password"
               fullWidth
               autoComplete="password"
             />
